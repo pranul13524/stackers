@@ -22,6 +22,7 @@ class stack():
 						time.sleep(0.2)
 						sense.set_pixel(x, 7, (0, 0, 255))
 						time.sleep(0.05)
+						sense.clear()
 						x = x + 1
 			x = 0
 
@@ -30,7 +31,7 @@ if __name__ == "__main__":
 	try:
 		game = stack()
 		game.startGame()
-		loop()
+	
 	except KeyboardInterrupt:
 		sense.clear()
 
