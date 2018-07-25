@@ -16,15 +16,18 @@ class stack():
 		x=0
 		pygame.time.set_timer(USEREVENT +1, 800)
 		while self.gaming:
-			while x<8:
-	
-						sense.set_pixel(x, 7, (0, 0, 255))
-						time.sleep(0.2)
-						sense.set_pixel(x, 7, (0, 0, 255))
-						time.sleep(0.05)
-						sense.clear()
-						x = x + 1
-			x = 0
+			for event in pygame.event.get():
+		 		if  event.type == KEYDOWN:
+					sense.set_pixel(column - 1, 7, (0, 255, 255))
+					self.gaming = False
+				else:
+					sense.set_pixel(x, 7, (0, 0, 255))
+					time.sleep(0.3)
+					sense.set_pixel(x, 7, (0, 0, 255))
+					sense.clear()
+					x = x + 1
+					if(x == 8):
+						x = 0
 
 
 if __name__ == "__main__":
